@@ -63,8 +63,12 @@ An OCCUPATIONS table that contains the following records:
 	There are a total of 3 actors.  
 	There are a total of 3 professors.   
   
-	SELECT (name || '(' || SUBSTR(occupation,1,1) || ')') FROM occupations ORDER BY name;
-	SELECT ('There are a total of ' || COUNT(occupation) || ' ' || LOWER(occupation) || 's' || '.') FROM occupations GROUP BY occupation ORDER BY COUNT(occupation), occupation ASC;
+	SELECT CONCAT (NAME, '(', LEFT (OCCUPATION, 1), ')') as col1 FROM  OCCUPATIONS ORDER BY  NAME;
+  	SELECT CONCAT ('There are a total of ', COUNT (OCCUPATION), ' ', lower (OCCUPATION), 's.') as col1
+	FROM OCCUPATIONS
+	GROUP BY OCCUPATION
+	ORDER BY COUNT(OCCUPATION), OCCUPATION;
+
   
   
   
